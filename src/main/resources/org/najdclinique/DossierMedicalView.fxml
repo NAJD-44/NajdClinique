@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.najdclinique.DossierMedicalController">
+    <children>
+        <BorderPane prefHeight="587.0" prefWidth="742.0">
+            <top>
+                <Label alignment="CENTER" prefHeight="80.0" prefWidth="346.0" text="Gestion des Dossiers Médicaux" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Arial Narrow Bold" size="40.0" />
+                    </font>
+                </Label>
+            </top>
+            <center>
+                <VBox prefHeight="504.0" prefWidth="742.0" spacing="10" BorderPane.alignment="CENTER">
+
+
+                    <AnchorPane minHeight="-Infinity" prefHeight="302.0" prefWidth="742.0">
+
+                        <Label layoutX="67.0" layoutY="14.0" text="Patient :" />
+                        <ComboBox fx:id="patientComboBox" layoutX="150.0" layoutY="10.0" prefWidth="200.0" />
+
+
+                        <Label layoutX="13.0" layoutY="45.0" text="Date de Création :" />
+                        <DatePicker fx:id="dateCreationPicker" layoutX="150.0" layoutY="41.0" />
+
+
+                        <Label layoutX="13.0" layoutY="76.0" text="Date de Mise à Jour :" />
+                        <DatePicker fx:id="dateMiseAJourPicker" layoutX="150.0" layoutY="72.0" />
+
+
+                        <Label layoutX="65.0" layoutY="111.0" text="Détails :" />
+                        <TextArea fx:id="detailsField" layoutX="150.0" layoutY="107.0" prefWidth="300.0" prefHeight="100.0" />
+
+
+                        <Button alignment="CENTER" layoutX="88.0" layoutY="220.0" onAction="#handleAddDossierMedical" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: #058789;" text="Ajouter" textFill="WHITE" />
+                        <Button layoutX="185.0" layoutY="220.0" onAction="#handleUpdateDossierMedical" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: #05696b;" text="Modifier" textFill="WHITE" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="220.0" onAction="#handleDeleteDossierMedical" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: red;" text="Supprimer" textAlignment="RIGHT" textFill="WHITE" />
+                    </AnchorPane>
+
+
+                    <HBox prefHeight="82.0" prefWidth="742.0" spacing="10">
+                        <Label text="Rechercher:" />
+                        <TextField fx:id="searchField" prefHeight="26.0" prefWidth="178.0" promptText="Entrez un patient ou détail" />
+                        <Button onAction="#handleExportToCSV" style="-fx-background-color: #058789; -fx-text-fill: white;" text="Exporter en CSV">
+                            <HBox.margin>
+                                <Insets left="350.0" />
+                            </HBox.margin>
+                        </Button>
+                    </HBox>
+
+
+                    <TableView fx:id="dossierMedicalTable">
+                        <columns>
+                            <TableColumn fx:id="idColumn" text="ID" />
+                            <TableColumn fx:id="patientColumn" text="Patient" />
+                            <TableColumn fx:id="dateCreationColumn" text="Date de Création" />
+                            <TableColumn fx:id="dateMiseAJourColumn" text="Date de Mise à Jour" />
+                            <TableColumn fx:id="detailsColumn" text="Détails" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

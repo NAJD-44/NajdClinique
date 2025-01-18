@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.*?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.image.*?>
+        <?import javafx.scene.layout.*?>
+        <?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.najdclinique.PatientController">
+    <children>
+        <BorderPane prefHeight="587.0" prefWidth="742.0">
+            <top>
+                <Label alignment="CENTER" prefHeight="80.0" prefWidth="346.0" text="Gestion des Patients" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Arial Narrow Bold" size="40.0" />
+                    </font>
+                </Label>
+            </top>
+            <center>
+                <VBox prefHeight="504.0" prefWidth="742.0" spacing="10" BorderPane.alignment="CENTER">
+
+
+                    <AnchorPane minHeight="-Infinity" prefHeight="302.0" prefWidth="742.0">
+
+                        <Label layoutX="67.0" layoutY="14.0" text="Nom      :" />
+                        <TextField fx:id="nomField" layoutX="150.0" layoutY="10.0" />
+
+
+                        <Label layoutX="65.0" layoutY="45.0" text="Prénom  :" />
+                        <TextField fx:id="prenomField" layoutX="150.0" layoutY="41.0" />
+
+
+                        <Label layoutX="64.0" layoutY="76.0" text="Genre     :" />
+                        <ComboBox fx:id="genreComboBox" layoutX="149.0" layoutY="72.0" style="-fx-background-color: #058789;" />
+
+
+                        <Label layoutX="13.0" layoutY="105.0" text="Date de Naissance :" />
+                        <DatePicker fx:id="dateNaissancePicker" layoutX="150.0" layoutY="103.0" />
+
+
+                        <Label layoutX="65.0" layoutY="143.0" text="Email      :" />
+                        <TextField fx:id="emailField" layoutX="150.0" layoutY="139.0" />
+
+
+                        <Label layoutX="13.0" layoutY="174.0" text="Numéro de Téléphone:" />
+                        <TextField fx:id="numTelField" layoutX="150.0" layoutY="170.0" />
+
+
+                        <Label layoutX="48.0" layoutY="204.0" text="Photo de Profil:" />
+                        <ImageView fx:id="photoProfilView" fitHeight="100.0" fitWidth="100.0" layoutX="150.0" layoutY="201.0" />
+                        <Button layoutX="150.0" layoutY="200.0" onAction="#handleUploadPhoto" text="Upload" />
+                        <Button alignment="CENTER" layoutX="88.0" layoutY="233.0" onAction="#handleAddPatient" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: #058789;" text="Ajouter" textFill="WHITE" />
+                        <Button layoutX="185.0" layoutY="233.0" onAction="#handleUpdatePatient" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: #05696b;" text="Modifier" textFill="WHITE" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="233.0" onAction="#handleDeletePatient" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: red;" text="Supprimer" textAlignment="RIGHT" textFill="WHITE" />
+                    </AnchorPane>
+
+
+                    <HBox prefHeight="82.0" prefWidth="742.0" spacing="10">
+                        <Label text="Rechercher:" />
+                        <TextField fx:id="searchField" prefHeight="26.0" prefWidth="178.0" promptText="Entrez un nom ou prénom" />
+                        <Button onAction="#handleExportToCSV" style="-fx-background-color: #058789; -fx-text-fill: white;" text="Exporter en CSV">
+                            <HBox.margin>
+                                <Insets left="350.0" />
+                            </HBox.margin></Button>
+                    </HBox>
+
+
+                    <TableView fx:id="patientTable">
+                        <columns>
+                            <TableColumn fx:id="idColumn" text="ID" />
+                            <TableColumn fx:id="nomColumn" text="Nom" />
+                            <TableColumn fx:id="prenomColumn" text="Prénom" />
+                            <TableColumn fx:id="genreColumn" text="Genre" />
+                            <TableColumn fx:id="dateNaissanceColumn" prefWidth="132.0" text="Date de Naissance" />
+                            <TableColumn fx:id="emailColumn" prefWidth="107.99996948242188" text="Email" />
+                            <TableColumn fx:id="numTelColumn" minWidth="0.0" prefWidth="181.60001220703123" text="Numéro de Téléphone" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
